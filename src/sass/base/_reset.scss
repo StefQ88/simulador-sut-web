@@ -1,5 +1,6 @@
 
-@import '../utils/variables';
+@use "../utils/variables";
+@use "../utils/colors";
 
 // ------------------------------------
 // RESET DE ESTILOS POR DEFECTO
@@ -11,11 +12,7 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%;
-    font-family: $font-primary;
-    scroll-behavior: smooth 
-}
+
 
 ul, ol {
     list-style: none;

@@ -1,23 +1,25 @@
 
-@import  "base/reset";
-@import  "base/base";
-@import  "base/typography";
 
 
-@import "components/buttons";
-@import "components/form";
-@import "components/loader";
-@import "components/modal";
+@use "utils/colors" as colors;
+@use "utils/variables" as variables;
+@use "utils/functions";
+@use "utils/mixins";
 
-@import "layout/footer";
-@import "layout/grid";
-@import "layout/header";
+@use "base/reset";
+@use "base/base";
+@use "base/typography";
 
-@import "pages/login";
-@import "pages/waiting-room";
+@use "components/buttons";
+@use "components/form";
+@use "components/loader";
+@use "components/modal";
 
-@import "utils/functions";
-@import "utils/mixins";
-@import "utils/variables";
+@use "layout/footer";
+@use "layout/grid";
+@use "layout/header";
 
+@use "pages/login";
+@use "pages/register";
+@use "pages/waiting-room";
 

@@ -1,0 +1,37 @@
+
+// -------------------------
+// PALETA PRINCIPAL
+// -------------------------
+
+// Fondos oscuros
+$color-black-night: #121212;
+$color-black-eerie: #181818;
+$color-black-raisin: #282828;
+
+// Grises
+$color-gray-davy: #535353;
+
+// Verdes principales
+$color-green-primary: #1DB954; // Acción principal
+$color-green-alt: #1DC95B;     // Hover o variante
+
+// Blanco
+$color-white: #ffffff;
+
+// -------------------------
+// ALIAS SEMÁNTICOS
+// -------------------------
+
+$color-background: $color-black-night;        // Fondo principal
+$color-surface: $color-black-eerie;           // Contenedores
+$color-surface-alt: $color-black-raisin;      // Variantes de fondo
+$color-text-primary: $color-white;
+$color-text-secondary: $color-gray-davy;
+
+$color-primary: $color-green-primary;
+$color-primary-hover: $color-green-alt;
+
+// Estados 
+$color-success: #22c55e;
+$color-warning: #f59e0b;
+$color-error: #ef4444;
