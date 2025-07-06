@@ -1,0 +1,66 @@
+// ------------------------------------
+// BREAKPOINTS
+// ------------------------------------
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+);
+
+$grid-width: (
+    xs: 360px, 
+    sm: 540px, 
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px 
+);
+
+
+// ------------------------------------
+// PALETA DE COLORES
+// ------------------------------------
+
+// Tonos principales
+$color-primary: #1db954 ;
+$color-primary-hover: #1ed760;  // Verde hover más claro
+$color-primary-light: #a7f3d0;  // Verde muy suave (fondo o detalles)
+
+
+// Fondo y superficies
+$color-background: #121212;       // Fondo general (negro grisáceo)
+$color-background-secondary: #212121;
+$color-surface: #1e1e1e;         // Tarjetas, paneles, cajas
+
+// Texto y grises
+$color-white: #ffffff;
+$color-gray-light: #d1d5db;        // Texto leve, bordes
+$color-gray-medium: #9ca3af;       // Texto secundario
+$color-gray-dark: #4b5563;         // Texto principal en fondo claro
+$color-black: #000000;
+
+// Estados
+$color-success: #22c55e;
+$color-error: #ef4444;
+$color-warning: #f59e0b;
+
+// Alias semánticos
+$primary-color: $color-primary;
+$secondary-color: $color-secondary;
+$success-color: $color-success;
+$warning-color: $color-warning;
+$danger-color: $color-error;
+
+// Fondo de layout
+$body-bg-color: $color-background;
+$header-bg-color: $color-primary;
+$footer-bg-color: $color-surface;
+
+// ------------------------------------
+// FUENTES
+// ------------------------------------
+$font-primary: "Inter", sans-serif;
+$font-secondary: "Oswald", sans-serif;

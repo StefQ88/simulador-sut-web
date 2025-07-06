@@ -1,0 +1,44 @@
+
+@import '../utils/variables';
+
+// ------------------------------------
+// ESTILOS BASE GLOBALES
+// ------------------------------------
+
+body {
+    background-color: $color-background;
+    color: $color-white;
+    font-size: 1rem;
+    line-height: 1.6
+}
+
+h1 {
+    font-family: $font-secondary;          // Fuente alternativa para títulos
+    font-size: 2.5rem ;                   // Tamaño grande
+    font-weight: 700 ;                    // Negrita fuerte
+    margin-bottom: 1rem;                  // Separación del siguiente contenido
+}
+
+
+
+h2 {
+
+    font-family: $font-secondary;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-family: $font-secondary;
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+
+}
+
+p {
+    font-size: 1rem;                     // Tamaño normal
+    margin-bottom: 1rem ;                // Espaciado entre párrafos
+    color: $color-gray-medium  ;         // Texto de párrafos un poco más suave
+}

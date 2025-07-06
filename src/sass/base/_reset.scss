@@ -1,0 +1,37 @@
+
+@import '../utils/variables';
+
+// ------------------------------------
+// RESET DE ESTILOS POR DEFECTO
+// ------------------------------------
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: $font-primary;
+    scroll-behavior: smooth 
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background-color: none;
+    cursor: pointer;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
