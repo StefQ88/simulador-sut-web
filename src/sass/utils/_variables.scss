@@ -1,4 +1,4 @@
-@use "./colors"; // ✅ Importa el archivo de colores con prefijo
+@use "./colors"; // se importa el archivo de colores con prefijo
 
 // ------------------------------------
 // BREAKPOINTS
@@ -21,19 +21,6 @@ $grid-width: (
   xxl: 1320px
 );
 
-// ------------------------------------
-// ALIAS SEMÁNTICOS (referencias a los de colors)
-// ------------------------------------
-$primary-color: colors.$color-primary;
-$secondary-color: colors.$color-secondary;
-$success-color: colors.$color-success;
-$warning-color: colors.$color-warning;
-$danger-color: colors.$color-error;
-
-// Fondo de layout
-$body-bg-color: colors.$color-background;
-$header-bg-color: colors.$color-primary;
-$footer-bg-color: colors.$color-surface;
 
 // ------------------------------------
 // FUENTES

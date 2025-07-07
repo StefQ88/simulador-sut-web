@@ -1,7 +1,9 @@
-import AppRoutes from './routes/AppRoutes';
+import AppRoutes from "./routes/AppRoutes";
+import "./sass/main.scss"; // Tus estilos globales
 
-const App = () => {
+
+
+function App() {
   return <AppRoutes />;
-};
-
+}
 export default App;

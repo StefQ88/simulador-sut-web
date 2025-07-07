@@ -6,7 +6,7 @@
 // ------------------------------------
 
 body {
-  background-color: colors.$color-background;
+  background-color: colors.$color-surface;
   color: colors.$color-white;
   font-family: variables.$font-primary;
   font-size: 1rem;
@@ -28,7 +28,7 @@ h2 {
   font-family: variables.$font-secondary;
   font-size: 2rem;
   font-weight: 600;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   color: colors.$color-white;
 }
 
@@ -43,5 +43,4 @@ h3 {
 p {
   font-size: 1rem;
   margin-bottom: 1rem;
-  color: colors.$color-gray-medium;
 }

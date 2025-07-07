@@ -1,0 +1,124 @@
+@use "../utils/colors";
+@use "../utils/variables";
+
+.login {
+  display: grid;
+  grid-template-columns: 4fr 2fr;
+  height: 100vh;
+
+  &__image-section {
+    display: flex;
+    align-items: center;
+    padding-left: 4rem;
+    background-image: url("/images/login-background.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
+    }
+
+    .login__content {
+      position: relative;
+      z-index: 1;
+      color: colors.$color-white;
+      max-width: 500px;
+      padding: 2rem;
+    }
+  }
+
+  &__form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+    height: 100vh;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  &__system-title {
+    position: absolute;
+    top: 14rem; // lo suficientemente arriba sin estar pegado
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: colors.$color-white;
+    font-family: variables.$font-secondary;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 1rem;
+      border: 3px solid colors.$color-green-primary;
+    }
+
+    &::before {
+      top: -6px;
+      left: -16px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    &::after {
+      bottom: -6px;
+      right: -16px;
+      border-left: none;
+      border-top: none;
+    }
+
+    .login__system-word {
+      font-size: 3rem;
+      font-weight: 400;
+    }
+
+    .login__system-acronym {
+      font-size: 3.5rem;
+      font-weight: 700;
+    }
+  }
+
+  &__form-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    width: 100%;
+    width: 400px;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    background-color: colors.$color-background;
+    color: colors.$color-white;
+    border: none;
+    outline: none;
+  }
+
+  &__button {
+    margin-top: 1rem;
+  }
+
+  &__error {
+    color: red;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+  }
+}
