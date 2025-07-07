@@ -43,17 +43,17 @@ function LoginForm() {
     <div className="login">
       {/* IZQUIERDA */}
       <div className="login__image-section">
-        <div className="login__content">
-          <Text as="h1" text="Bienvenido" className="login__intro-title" />
+        <div className="login__image-content">
+          <Text as="h1" text="Bienvenido" className="login__image-title" />
           <Text
             as="h2"
             text="Preparate para el campo real"
-            className="login__intro-subtitle"
+            className="login__image-subtitle"
           />
           <Text
             as="p"
             text="Simulá escenarios agrícolas, analizá resultados y avanzá con cada desafío"
-            className="login__intro-subtitle"
+            className="login__image-description"
           />
         </div>
       </div>
@@ -61,11 +61,10 @@ function LoginForm() {
       {/* DERECHA */}
       <div className="login__form-section">
         <h2 className="login__system-title">
-          <span className="login__system-word">Simulador</span>{" "}
-          <span className="login__system-acronym">SUT</span>
+          Simulador <span className="login__system-title--bold">SUT</span>
         </h2>
 
-        <div className="login__form-body">
+
           <form className="login__form">
             <div className="login__form-group">
               <input
@@ -83,7 +82,7 @@ function LoginForm() {
               Ingresar
             </button>
           </form>
-        </div>
+        
 
         {error && <p className="login__error">{error}</p>}
       </div>
