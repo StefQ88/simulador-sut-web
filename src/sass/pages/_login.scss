@@ -3,7 +3,7 @@
 
 .login {
   display: grid;
-  grid-template-columns: 4fr 2fr;
+  grid-template-columns: 5fr 2fr;
   height: 100vh;
 
   &__image-section {
@@ -67,9 +67,10 @@
   &__form-section {
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
-    padding: 2rem;
+    padding: 3rem;
     box-sizing: border-box;
     position: relative;
   }
@@ -107,43 +108,6 @@
     align-items: center;
   }
 
-  &__system-title {
-    position: absolute;
-    top: 15rem;
-    left: 50%;
-    transform: translateX(-50%);
-    font-family: variables.$font-secondary;
-    color: colors.$color-white;
-    font-size: 2.5rem;
-
-    &--bold {
-      font-weight: 700;
-      font-size: 3rem;
-    }
-
-    &::before,
-    &::after {
-      content: "";
-      position: absolute;
-      width: 1rem;
-      height: 1rem;
-      border: 3px solid colors.$color-green-primary;
-    }
-
-    &::before {
-      top: -6px;
-      left: -16px;
-      border-right: none;
-      border-bottom: none;
-    }
-
-    &::after {
-      bottom: -6px;
-      right: -16px;
-      border-left: none;
-      border-top: none;
-    }
-  }
 
   &__input {
     display: block; // Asegura que no tenga comportamiento inline

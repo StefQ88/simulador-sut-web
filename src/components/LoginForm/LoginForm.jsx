@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Text from "../Text/Text";
 import Button from "../Button";
+import Title from "../Title";
 
 function LoginForm() {
   // Estado local que guarda los valores del formulario
@@ -61,35 +62,32 @@ function LoginForm() {
 
       {/* DERECHA */}
       <div className="login__form-section">
-        <h2 className="login__system-title">
-          Simulador <span className="login__system-title--bold">SUT</span>
-        </h2>
-
-
         <div className="login__form-body">
-        <form className="login__form" onSubmit={handleSubmit}>
-          <div className="login__form-group">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              autoComplete="true"
-              value={formData.email}
-              onChange={handleChange}
-              placeholder="Ingresá tu correo"
-              className="login__input"
-            />
-            <input
-              type="password"
-              id="password"
-              name="password"
-              autoComplete="true"
-              value={formData.password}
-              onChange={handleChange}
-              placeholder="Ingresá tu contraseña"
-              className="login__input"
-            />
-
+          <Text as="h2" className="title title--primary title__bold">
+            Simulador <span>SUT</span>
+          </Text>
+          <form className="login__form" onSubmit={handleSubmit}>
+            <div className="login__form-group">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autoComplete="true"
+                value={formData.email}
+                onChange={handleChange}
+                placeholder="Ingresá tu correo"
+                className="login__input"
+              />
+              <input
+                type="password"
+                id="password"
+                name="password"
+                autoComplete="true"
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Ingresá tu contraseña"
+                className="login__input"
+              />
             </div>
             <div className="button-container">
               <Button
@@ -99,14 +97,9 @@ function LoginForm() {
                 label="Iniciar sesión"
                 className="login__button "
               />
-          </div>
-
-        </form>
-
+            </div>
+          </form>
         </div>
-
-
-
 
         {error && <p className="login__error">{error}</p>}
       </div>
