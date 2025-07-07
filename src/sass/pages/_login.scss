@@ -7,8 +7,6 @@
   height: 100vh;
 
   &__image-section {
-    display: flex;
-    align-items: center;
     background-image: url("/images/login-background.jpeg");
     background-size: cover;
     background-position: center;
@@ -26,11 +24,13 @@
 
   &__image-content {
     position: relative;
-    align-items: center;
     z-index: 1;
     color: colors.$color-white;
     max-width: 600px;
     padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
   }
 
   &__image-title {
@@ -66,24 +66,54 @@
 
   &__form-section {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
     height: 100vh;
+    padding: 2rem;
     box-sizing: border-box;
     position: relative;
-    overflow: hidden;
+  }
+
+  &__form-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem;
+  }
+
+  &__form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    width: 100%;
+    max-width: 400px
+  }
+
+  .button-container {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__system-title {
     position: absolute;
-    top: 16rem;
+    top: 15rem;
     left: 50%;
     transform: translateX(-50%);
-    text-align: center;
-    color: colors.$color-white;
     font-family: variables.$font-secondary;
+    color: colors.$color-white;
     font-size: 2.5rem;
 
     &--bold {
@@ -115,23 +145,11 @@
     }
   }
 
-    &__form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-  }
-
-  &__form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    width: 100%;
-    max-width: 450px;
-  }
-
   &__input {
+    display: block; // Asegura que no tenga comportamiento inline
     width: 100%;
+    box-sizing: border-box; // Para que padding no lo rompa
+    max-width: 100%; // Por si hereda algún límite
     padding: 0.75rem 2rem;
     font-size: 1rem;
     border-radius: 6px;
@@ -139,10 +157,8 @@
     color: colors.$color-white;
     border: none;
     outline: none;
-  }
+     caret-color: colors.$color-green-primary; // o cualquier color de tu sistema
 
-  &__button {
-    margin-top: 1rem;
   }
 
   &__error {

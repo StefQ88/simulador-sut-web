@@ -1,0 +1,51 @@
+@use "../utils/variables";
+@use "../utils/colors";
+
+.btn {
+  border-radius: 1rem;
+  border: 1px solid transparent;
+  padding: 0.4rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  font-family: variables.$font-primary;
+  background-color: colors.$color-primary;
+  cursor: pointer;
+  transition: border-color 0.25s;
+
+  &--primary {
+    &.btn--solid {
+      background-color: colors.$color-primary;
+      color: colors.$color-white;
+    }
+
+    &.btn--outline {
+      background-color: transparent;
+      border: 1px solid colors.$color-primary;
+      color: colors.$color-primary;
+    }
+
+    &:disabled {
+      background-color: colors.$color-gray-davy;
+      color: colors.$color-white;
+    }
+  }
+
+  &--secondary {
+    &.btn--solid {
+      background-color: colors.$color-black-raisin;
+      color: colors.$color-white;
+    }
+
+    &.btn--outline {
+      background-color: transparent;
+      border: 1px solid colors.$color-black-raisin;
+      color: colors.$color-black-raisin;
+    }
+
+    &:disabled {
+      background-color: colors.$color-gray-davy;
+      color:colors.$color-white;
+    }
+  }
+}
+

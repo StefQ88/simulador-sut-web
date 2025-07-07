@@ -1,9 +1,8 @@
 
 
 
-@use "utils/colors" as colors;
-@use "utils/variables" as variables;
-@use "utils/functions";
+@use "utils/colors";
+@use "utils/variables";
 @use "utils/mixins";
 
 @use "base/reset";
@@ -23,4 +22,6 @@
 @use "pages/login";
 @use "pages/register";
 @use "pages/waiting-room";
+
+
 

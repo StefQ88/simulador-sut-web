@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Text from "../Text/Text";
+import Button from "../Button";
 
 function LoginForm() {
   // Estado local que guarda los valores del formulario
@@ -65,24 +66,47 @@ function LoginForm() {
         </h2>
 
 
-          <form className="login__form">
-            <div className="login__form-group">
-              <input
-                type="email"
-                placeholder="Ingresá tu correo"
-                className="login__input"
-              />
-              <input
-                type="password"
-                placeholder="Ingresá tu contraseña"
-                className="login__input"
-              />
+        <div className="login__form-body">
+        <form className="login__form" onSubmit={handleSubmit}>
+          <div className="login__form-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="true"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Ingresá tu correo"
+              className="login__input"
+            />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autoComplete="true"
+              value={formData.password}
+              onChange={handleChange}
+              placeholder="Ingresá tu contraseña"
+              className="login__input"
+            />
+
             </div>
-            <button type="submit" className="login__button">
-              Ingresar
-            </button>
-          </form>
-        
+            <div className="button-container">
+              <Button
+                type="submit"
+                color="primary"
+                variant="solid"
+                label="Iniciar sesión"
+                className="login__button "
+              />
+          </div>
+
+        </form>
+
+        </div>
+
+
+
 
         {error && <p className="login__error">{error}</p>}
       </div>
