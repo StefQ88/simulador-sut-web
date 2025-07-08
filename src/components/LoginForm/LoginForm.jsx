@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Text from "../Text/Text";
 import Button from "../Button";
-import Title from "../Title";
+
 
 function LoginForm() {
   // Estado local que guarda los valores del formulario
@@ -13,7 +13,10 @@ function LoginForm() {
   });
 
   // Estado para mostrar errores de validacion
-  const [error, setError] = useState("");
+  const [errors, setError] = useState({
+    email: "",
+    password: "",
+  });
 
   // Maneja los cambios de los inputs (email y password)
   const handleChange = (e) => {
@@ -25,17 +28,44 @@ function LoginForm() {
     }));
   };
 
-  // Funcion que maneja el envio del formulario
+  // se ejecuta para enviar el formulario
   const handleSubmit = (e) => {
     e.preventDefault(); //evita que el formulario recargue la pagina al enviarse
 
-    if (!formData.email || !formData.password) {
-      setError("Por favor, completa todos los campos.");
+    const emailTrimed = formData.email.trim();
+    const passwordTrimed = formData.password.trim();
+
+    const newErrors = {
+      email: "",
+      password: "",
+    };
+
+    if (!emailTrimed) {
+      newErrors.email = "El correo es obligatorio.";
+    }
+
+    if (!passwordTrimed) {
+      newErrors.password = "La contraseña es obligatoria.";
+    } else if (passwordTrimed.length < 6) {
+      newErrors.password = "La contraseña debe tener al menos 6 caracteres";
+    }
+
+    if (newErrors.email || newErrors.password) {
+      setError(newErrors);
       return;
     }
 
-    // si todos los campos tienen datos, borramos el mensaje de error
-    setError("");
+    setError({
+      email: "",
+      password: "",
+    });
+  };
+
+  const handleFocus = () => {
+    setError({
+      email: "",
+      password: "",
+    });
   };
 
   // ej enviar los datos a un servidor con fetch o axios
@@ -63,33 +93,59 @@ function LoginForm() {
       {/* DERECHA */}
       <div className="login__form-section">
         <div className="login__form-body">
-          <Text as="h2" className="title title--primary title__bold">
-            Simulador <span>SUT</span>
-          </Text>
+          <div className="login__title-wrapper">
+            <Text as="h2" className="title title--primary">
+              <span className="title__bold">
+                Simulador <span>SUT</span>
+              </span>
+            </Text>
+          </div>
+
           <form className="login__form" onSubmit={handleSubmit}>
             <div className="login__form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                autoComplete="true"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Ingresá tu correo"
-                className="login__input"
-              />
-              <input
-                type="password"
-                id="password"
-                name="password"
-                autoComplete="true"
-                value={formData.password}
-                onChange={handleChange}
-                placeholder="Ingresá tu contraseña"
-                className="login__input"
-              />
+              <div className="login__form-field">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  autoComplete="true"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus("email")}
+                  placeholder="Ingresá tu correo"
+                  className={`login__input ${
+                    errors.email ? "login__input--error" : ""
+                  }`}
+                />
+                <Text
+                  as="span"
+                  text={errors.email}
+                  className="login__error"
+                />
+              </div>
+
+              <div className="login__form-field">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  autoComplete="true"
+                  value={formData.password}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus("password")}
+                  placeholder="Ingresá tu contraseña"
+                  className={`login__input ${
+                    errors.password ? "login__input--error" : ""
+                  }`}
+                />
+                <Text
+                  as="span"
+                  text={errors.password}
+                  className="login__error"
+                />
+              </div>
             </div>
-            <div className="button-container">
+            <div className="login__button-container">
               <Button
                 type="submit"
                 color="primary"
@@ -100,8 +156,6 @@ function LoginForm() {
             </div>
           </form>
         </div>
-
-        {error && <p className="login__error">{error}</p>}
       </div>
     </div>
   );

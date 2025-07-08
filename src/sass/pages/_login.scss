@@ -71,8 +71,13 @@
     align-items: center;
     height: 100vh;
     padding: 3rem;
-    box-sizing: border-box;
-    position: relative;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    width: 100%;
   }
 
   &__form-body {
@@ -81,6 +86,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+    max-width: 600px;
   }
 
   &__form {
@@ -94,40 +100,42 @@
   &__form-group {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
+    gap: 1rem;
     width: 100%;
-    max-width: 400px
   }
 
-  .button-container {
-    margin-top: 3rem;
-    width: 100%;
+  &__form-field {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
   }
-
 
   &__input {
-    display: block; // Asegura que no tenga comportamiento inline
+    display: block; 
     width: 100%;
-    box-sizing: border-box; // Para que padding no lo rompa
-    max-width: 100%; // Por si hereda algún límite
-    padding: 0.75rem 2rem;
+    box-sizing: border-box; 
+    padding: 0.75rem 1rem;
     font-size: 1rem;
     border-radius: 6px;
     background-color: colors.$color-background;
     color: colors.$color-white;
     border: none;
     outline: none;
-     caret-color: colors.$color-green-primary; // o cualquier color de tu sistema
-
+    caret-color: colors.$color-green-primary; 
   }
 
   &__error {
-    color: red;
-    font-size: 0.95rem;
-    margin-top: 1rem;
+    min-height: 1.5rem; 
+    font-size: 0.8rem;
+    color: colors.$color-error;
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  &__button-container {
+    margin-top: 3rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }

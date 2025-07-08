@@ -1,31 +1,23 @@
-
 @use "../utils/colors";
 @use "../utils/variables";
 
 .title {
   font-family: variables.$font-secondary;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 2rem;
-  
 
-  &--primary   {
+  &--primary {
     font-size: 3rem;
     color: colors.$color-white;
   }
 
-  &--secondary {
-    font-size: 2rem;
-    color: colors.$color-green-primary;
-  }
-
   &__bold {
-    display: inline-block;
     position: relative;
+    display: inline-block;
     font-size: 3rem;
     font-weight: 600;
     color: inherit;
-    text-align: inherit;
+    text-align: center;
 
     &::before,
     &::after {
@@ -38,14 +30,14 @@
 
     &::before {
       top: -6px;
-      left: -16px;
+      left: -1.4rem;
       border-right: none;
       border-bottom: none;
     }
 
     &::after {
       bottom: -6px;
-      right: -16px;
+      right: -1rem;
       border-left: none;
       border-top: none;
     }
