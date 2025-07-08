@@ -6,13 +6,15 @@
   grid-template-columns: 5fr 2fr;
   height: 100vh;
 
+  // SECCION IZQUIERDA
   &__image-section {
-    background-image: url("/images/login-background.jpeg");
+    background-image: url("/public/images/login-background\ .webp.jpeg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     position: relative;
 
+    // Capa oscura encima de la imagen
     &::before {
       content: "";
       position: absolute;
@@ -24,13 +26,13 @@
 
   &__image-content {
     position: relative;
-    z-index: 1;
+    z-index: 1; //se muestra encima del ::before
     color: colors.$color-white;
     max-width: 600px;
     padding: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: flex-start; //alinea arriba
   }
 
   &__image-title {
@@ -38,20 +40,21 @@
     font-weight: 800;
     font-family: variables.$font-secondary;
     color: colors.$color-white;
-    margin-bottom: 1rem;
-    letter-spacing: 1px;
-    line-height: 1.1;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    margin-bottom: 1rem; //espacio con el subtitulo
+    letter-spacing: 1px; //separación entre letras
+    line-height: 1.1; //altura entre líneas
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); // sombra para resaltar
   }
 
   &__image-subtitle {
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 600; // semi-bold
     font-family: variables.$font-primary;
     color: colors.$color-green-primary;
     margin-bottom: 1rem;
     position: relative;
     letter-spacing: 0.5px;
+    max-width: 500px;
   }
 
   &__image-description {
@@ -59,7 +62,7 @@
     font-weight: 300;
     font-family: variables.$font-primary;
     color: colors.$color-white;
-    opacity: 0.85;
+    opacity: 0.85; // ligeramente transparente
     max-width: 500px;
     line-height: 1.7;
   }
@@ -75,7 +78,7 @@
 
   &__title-wrapper {
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     width: 100%;
   }
@@ -94,7 +97,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem;
+    padding: 2rem;
   }
 
   &__form-group {
@@ -106,28 +109,38 @@
 
   &__form-field {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; //apila input y error
   }
 
   &__input {
-    display: block; 
+    display: block;
     width: 100%;
-    box-sizing: border-box; 
+    box-sizing: border-box; // incluye padding en el ancho total
     padding: 0.75rem 1rem;
     font-size: 1rem;
     border-radius: 6px;
     background-color: colors.$color-background;
     color: colors.$color-white;
     border: none;
-    outline: none;
-    caret-color: colors.$color-green-primary; 
+    outline: none; // quita el resaltado azul
+    caret-color: colors.$color-green-primary;
+  }
+
+  &__input--error {
+    border: 1px solid colors.$color-error; // borde rojo
+    background-color: rgba(colors.$color-error, 0.1); // fondo ligeramente rojo
+  }
+
+  &__input:focus {
+    border: 1px solid colors.$color-green-primary; // borde verde al enfocar
+    box-shadow: 0 0 0 2px rgba(colors.$color-green-primary, 0.2); // halo suave
   }
 
   &__error {
-    min-height: 1.5rem; 
-    font-size: 0.8rem;
-    color: colors.$color-error;
-    margin-top: 0.3rem;
+    min-height: 1.5rem; // espacio esté reservado
+    font-size: 0.8rem; // tamaño más chico para mensajes
+    color: colors.$color-error; // texto rojo
+    margin-top: 0.3rem; // separación con el input
     display: block;
   }
 
@@ -137,5 +150,78 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  &__register-text {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: colors.$color-white;
+    text-align: center;
+  }
+
+  &__register-link {
+    color: colors.$color-green-primary;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      color: lighten(colors.$color-green-primary, 10%);
+    }
+  }
+}
+
+// media query para hacer el login responsive
+@media (max-width: 768px) {
+  .login {
+    display: flex !important;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .login__image-section {
+    width: 100%;
+    min-height: 400px;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login__form-section {
+    width: 100%;
+    order: 1;
+    padding: 2rem 1rem;
+    height: auto;
+  }
+
+  .login__form {
+    padding: 0;
+    gap: 1rem;
+  }
+
+  .login__title-wrapper {
+    margin-top: 0;
+  }
+
+  .login__image-content {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .login__image-title {
+    font-size: 2rem;
+  }
+
+  .login__image-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .login__image-description {
+    font-size: 1rem;
+    margin-bottom: 0;
   }
 }
