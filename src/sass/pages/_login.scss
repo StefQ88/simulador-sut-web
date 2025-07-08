@@ -74,6 +74,8 @@
     align-items: center;
     height: 100vh;
     padding: 3rem;
+    position: relative;
+    overflow: hidden;
   }
 
   &__title-wrapper {
@@ -168,6 +170,25 @@
       color: lighten(colors.$color-green-primary, 10%);
     }
   }
+
+  &__register-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+    width: 100%;
+  }
+
+
+
+
+
+
+
+
+
+
+
 }
 
 // media query para hacer el login responsive

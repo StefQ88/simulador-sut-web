@@ -2,24 +2,26 @@ import { useState } from "react";
 import Text from "../Text/Text";
 import Button from "../Button";
 
+import RegisterForm from "../RegisterForm";
+
 // FUNCION DE VALIDACION - Fuera del componente
 // esta funcion recibe un objeto con "email" y "password"
 // y devuelve un objeto con mensaje de error si no paso la validacion
 const validateForm = ({ email, password }) => {
   const errors = {};
 
-  const emailTrimed = email.trim();
-  const passwordTrimed = password.trim();
+  const emailTrimmed = email.trim();
+  const passwordTrimmed = password.trim();
 
-  if (!emailTrimed) {
+  if (!emailTrimmed) {
     errors.email = "El correo es obligatorio.";
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailTrimed)) {
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailTrimmed)) {
     errors.email = "El formato del correo no es válido.";
   }
 
-  if (!passwordTrimed) {
+  if (!passwordTrimmed) {
     errors.password = "La contraseña es obligatoria.";
-  } else if (passwordTrimed.length < 6) {
+  } else if (passwordTrimmed.length < 6) {
     errors.password = "La contraseña debe tener al menos 6 caracteres.";
   }
 
@@ -39,10 +41,12 @@ Componente funcional LoginForm
 */
 function LoginForm() {
   /*
+  ESTADOS:
   setFormData y setError son funciones que actualizan valores de los inputs
   y errores. 
   -formData guarda lo que el usuario escribe
   -errors guarda los mensajes de error que se deben mostrar
+  -showRegister guarda estado de "Registrarte"
   */
 
   const [formData, setFormData] = useState({
@@ -54,6 +58,8 @@ function LoginForm() {
     email: "",
     password: "",
   });
+
+  const [showRegister, setShowRegister] = useState(false);
 
   /*
   handleChange, se ejecuta cada vez que el usuario escribe en un campo
@@ -148,64 +154,78 @@ function LoginForm() {
             </Text>
           </div>
 
-          <form className="login__form" onSubmit={handleSubmit}>
-            <div className="login__form-group">
-              <div className="login__form-field">
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  autoComplete="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  onFocus={() => handleFocus("email")}
-                  placeholder="Ingresá tu correo"
-                  className={inputClass("email")}
+          {showRegister ? (
+            <div className="login__register-panel slide-in">
+              <RegisterForm onClose={() => setShowRegister(false)} />
+            </div>
+          ) : (
+            <form className="login__form" onSubmit={handleSubmit}>
+              <div className="login__form-group">
+                <div className="login__form-field">
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    autoComplete="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus("email")}
+                    placeholder="Ingresá tu correo"
+                    className={inputClass("email")}
+                  />
+                  <Text
+                    as="span"
+                    text={errors.email}
+                    className="login__error"
+                  />
+                </div>
+
+                <div className="login__form-field">
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autoComplete="current-password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    onFocus={() => handleFocus("password")}
+                    placeholder="Ingresá tu contraseña"
+                    className={inputClass("password")}
+                  />
+                  <Text
+                    as="span"
+                    text={errors.password}
+                    className="login__error"
+                  />
+                </div>
+              </div>
+              <div className="login__button-container">
+                <Button
+                  type="submit" //dispara el envio del formulario al hacer clic
+                  color="primary"
+                  variant="solid"
+                  label="Iniciar sesión"
+                  className="login__button "
                 />
-                <Text as="span" text={errors.email} className="login__error" />
               </div>
 
-              <div className="login__form-field">
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  autoComplete="current-password"
-                  value={formData.password}
-                  onChange={handleChange}
-                  onFocus={() => handleFocus("password")}
-                  placeholder="Ingresá tu contraseña"
-                  className={inputClass("password")}
-                />
-                <Text
-                  as="span"
-                  text={errors.password}
-                  className="login__error"
-                />
-              </div>
-            </div>
-            <div className="login__button-container">
-              <Button
-                type="submit" //dispara el envio del formulario al hacer clic
-                color="primary"
-                variant="solid"
-                label="Iniciar sesión"
-                className="login__button "
+              <Text
+                as="p"
+                className="login__register-text"
+                text={
+                  <>
+                    ¿Aún no tenés cuenta?,{" "}
+                    <span
+                      className="login__register-link"
+                      onClick={() => setShowRegister(true)}
+                    >
+                      Registrate
+                    </span>
+                  </>
+                }
               />
-            </div>
-
-            <Text
-              as="p"
-              className="login__register-text"
-              text={
-                <>
-                  ¿Aún no tenés cuenta?,{" "}
-                  <a href="/register" className="login__register-link" >
-                  Registrate</a>
-                </>
-              }
-            />
-          </form>
+            </form>
+          )}
         </div>
       </div>
     </div>

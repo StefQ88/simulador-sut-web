@@ -1,0 +1,73 @@
+@use "../utils/colors";
+
+.modal {
+  position: fixed; // Siempre visible por encima del contenido
+  inset: 0; // Ocupa toda la pantalla (top, right, bottom, left = 0)
+  background-color: rgba(0, 0, 0, 0.6); // Capa oscura de fondo
+  display: flex;
+  z-index: 999;
+
+  // Modificador para modal lateral derecho (tipo panel)
+  &--right {
+    justify-content: flex-end; // se alinea a la derecha
+    align-items: stretch;
+  }
+
+  // Modificador para modal centrado
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  // Contenedor del contenido del modal
+  &__container {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background-color: colors.$color-surface;
+    padding: 2rem;
+    overflow-y: auto;
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  // Ajustes si está centrado
+  &--center &__container {
+    width: 90%;
+    max-width: 600px;
+    height: auto;
+    max-height: 90vh;
+    border-radius: 1rem;
+    background-color: colors.$color-gray-davy;
+    color: colors.$color-white;
+  }
+
+  // Botón de cierre
+  &__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: colors.$color-primary;
+    cursor: pointer;
+  }
+
+  // Área para renderizar el contenido (opcional, se puede personalizar)
+  &__content {
+    margin-top: 2rem;
+  }
+}
+
+// Animación de entrada desde la derecha
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
