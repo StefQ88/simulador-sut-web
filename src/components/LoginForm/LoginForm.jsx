@@ -120,16 +120,15 @@ function LoginForm() {
     - si no hay error devuelve solo "login__input"
   */
 
-  const inputClass = (fieldName) => {
-    return `login__input ${errors[fieldName] ? "login__input--error" : ""}`;
+  const inputClass = (field) => {
+    return `auth__input ${errors[field] ? "auth__input--error" : ""}`;
   };
-
   return (
     <div className="login">
       {/* IZQUIERDA */}
       <div className="login__image-section">
         <div className="login__image-content">
-          <Text as="h1" text="Bienvenido" className="login__image-title" />
+          <Text as="h2" text="Bienvenido" className="login__image-title" />
           <Text
             as="h2"
             text="Preparate para el campo real"
@@ -145,88 +144,93 @@ function LoginForm() {
 
       {/* DERECHA */}
       <div className="login__form-section">
-        <div className="login__form-body">
-          <div className="login__title-wrapper">
-            <Text as="h2" className="title title--primary">
-              <span className="title__bold">
-                Simulador <span>SUT</span>
-              </span>
-            </Text>
-          </div>
+        
 
-          {showRegister ? (
-            <div className="login__register-panel slide-in">
-              <RegisterForm onClose={() => setShowRegister(false)} />
-            </div>
-          ) : (
-            <form className="login__form" onSubmit={handleSubmit}>
-              <div className="login__form-group">
-                <div className="login__form-field">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    autoComplete="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    onFocus={() => handleFocus("email")}
-                    placeholder="Ingresá tu correo"
-                    className={inputClass("email")}
-                  />
-                  <Text
-                    as="span"
-                    text={errors.email}
-                    className="login__error"
-                  />
-                </div>
 
-                <div className="login__form-field">
-                  <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    autoComplete="current-password"
-                    value={formData.password}
-                    onChange={handleChange}
-                    onFocus={() => handleFocus("password")}
-                    placeholder="Ingresá tu contraseña"
-                    className={inputClass("password")}
-                  />
-                  <Text
-                    as="span"
-                    text={errors.password}
-                    className="login__error"
-                  />
-                </div>
+        {showRegister ? (
+          <RegisterForm onClose={() => setShowRegister(false)} />
+        ) : (
+
+          <>
+          
+          
+          
+          <form className="login__form" onSubmit={handleSubmit}>
+          <Text as="h1" className="title title--primary login__title">
+            <span className="title__bold">
+              Simulador <span>SUT</span>
+            </span>
+          </Text>
+
+
+
+
+
+
+            <div className="auth__form-group">
+              <div className="auth__form-field">
+                <input
+                  type="email"
+                  name="email"
+                  autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus("email")}
+                  placeholder="Ingresá tu correo"
+                  className={inputClass("email")}
+                />
+                <Text as="span" text={errors.email} className="auth__error" />
               </div>
-              <div className="login__button-container">
-                <Button
-                  type="submit" //dispara el envio del formulario al hacer clic
-                  color="primary"
-                  variant="solid"
-                  label="Iniciar sesión"
-                  className="login__button "
+
+              <div className="auth__form-field">
+                <input
+                  type="password"
+                  name="password"
+                  autoComplete="current-password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  onFocus={() => handleFocus("password")}
+                  placeholder="Ingresá tu contraseña"
+                  className={inputClass("password")}
+                />
+                <Text
+                  as="span"
+                  text={errors.password}
+                  className="auth__error"
                 />
               </div>
+            </div>
 
-              <Text
-                as="p"
-                className="login__register-text"
-                text={
-                  <>
-                    ¿Aún no tenés cuenta?,{" "}
-                    <span
-                      className="login__register-link"
-                      onClick={() => setShowRegister(true)}
-                    >
-                      Registrate
-                    </span>
-                  </>
-                }
+            <div className="auth__button-container">
+              <Button
+                type="submit"
+                color="primary"
+                variant="solid"
+                label="Iniciar sesión"
               />
-            </form>
-          )}
-        </div>
+            </div>
+
+            <Text
+              as="p"
+              className="auth__register-text"
+              text={
+                <>
+                  ¿Aún no tenés cuenta?,{" "}
+                  <span
+                    className="auth__register-link"
+                    onClick={() => setShowRegister(true)}
+                  >
+                    Registrate
+                  </span>
+                </>
+              }
+            />
+          </form>
+          
+          </>
+
+
+        )}
       </div>
     </div>
   );

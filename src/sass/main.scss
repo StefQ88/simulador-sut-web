@@ -12,12 +12,14 @@
 @use "components/buttons";
 @use "components/modal";
 @use "components/title";
+@use "components/auth";
 
 @use "layout/footer";
 @use "layout/grid";
 @use "layout/header";
 
 @use "pages/login";
+@use "pages/register"
 
 
 
