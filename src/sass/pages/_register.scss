@@ -1,0 +1,51 @@
+@use "../utils/colors";
+@use "../utils/variables";
+
+.register {
+
+  &__panel {
+  width: 100%;
+  max-width: 500px;
+//   padding: 2rem;
+  background-color: colors.$color-surface;
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  }
+
+  &__form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: colors.$color-surface;
+    padding: 1rem;
+    position: relative;
+  }
+
+  &__close-button {
+    background: none;
+    border: none;
+    color: colors.$color-white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: auto; // lo empuja a la derecha
+    padding: 1rem;
+
+    &:hover {
+      color: colors.$color-green-primary;
+    }
+  }
+
+  &__title {
+    margin-top: 0.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    width: 100%;
+    font-size: 2.5rem;
+  }
+}
